@@ -34,6 +34,7 @@ import {
   mysql,
   sqlite,
   bowen,
+  github,
 } from '../assets';
 
 export const navLinks = [
