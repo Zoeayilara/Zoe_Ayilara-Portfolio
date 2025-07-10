@@ -116,7 +116,7 @@ const Projects = () => {
   return (
     <div className="-mt-[6rem]">
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Case Studies</p>
+        <p className={`${styles.sectionSubText} `}>My Work</p>
         <h2 className={`${styles.sectionHeadTextLight}`}>Projects.</h2>
       </motion.div>
 
@@ -128,7 +128,7 @@ const Projects = () => {
           some of my work, including brief descriptions and links to code
           repositories and live demos. They showcase my ability to tackle
           intricate challenges, adapt to various technologies, and efficiently
-          oversee projects.
+          oversee projects. Each one helped me grow as a developer and solve practical problems
         </motion.p>
       </div>
 

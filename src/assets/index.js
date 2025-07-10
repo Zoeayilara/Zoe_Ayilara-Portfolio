@@ -6,7 +6,7 @@ import worldmap from './backgrounds/world-map.png';
 import logo from './logo/logo-black.png';
 import logotext from './logo/logo-text-black.png';
 
-import shaq from './personal/shaq.png';
+import zoe from './personal/zoe.jpg';
 
 import backend from './icons/backend.png';
 import ux from './icons/ux.png';
@@ -22,6 +22,13 @@ import menu from './icons/menu.png';
 import resume from './icons/resume.png';
 import send from './icons/send.png';
 import sendHover from './icons/sendHover.png';
+import microchip from './icons/microchip.png';
+import database from './icons/database.png';
+import python from './icons/python.png';
+import api from './icons/api.png';
+import mysql from './icons/mysql.png';
+import sqlite from './icons/sqlite.png';
+
 
 import css from './tech/css.png';
 import docker from './tech/docker.png';
@@ -38,10 +45,13 @@ import graphql from './tech/graphql.png';
 import postgresql from './tech/postgresql.png';
 import rubyrails from './tech/rubyrails.png';
 
+
 import coverhunt from './company/coverhunt.png';
 import dcc from './company/dcc.png';
 import kelhel from './company/kelhel.png';
 import microverse from './company/microverse.png';
+import bowen from './company/bowen.png';
+// import github from './company/github.png';
 
 import komikult from './projects/komikult.png';
 import leaderboard from './projects/leaderboard.png';
@@ -57,7 +67,7 @@ export {
   worldmap,
   logo,
   logotext,
-  shaq,
+  zoe,
   backend,
   ux,
   frontend,
@@ -96,4 +106,11 @@ export {
   dcc,
   kelhel,
   microverse,
+  bowen,
+  mysql,
+  sqlite,
+  microchip,
+  api,
+  python,
+  database,
 };

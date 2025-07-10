@@ -27,6 +27,13 @@ import {
   dcc,
   kelhel,
   microverse,
+  microchip,
+  database,
+  python,
+  api,
+  mysql,
+  sqlite,
+  bowen,
 } from '../assets';
 
 export const navLinks = [
@@ -46,22 +53,23 @@ export const navLinks = [
 
 const services = [
   {
-    title: 'Frontend Developer',
+    title: 'Web Developer',
     icon: frontend,
   },
   {
-    title: 'Backend Developer',
+    title: 'Backend Engineer',
     icon: backend,
   },
   {
-    title: 'UI/UX Design',
-    icon: ux,
+    title: 'AI & ML Enthusiast',
+    icon: microchip, // Replace with a better icon if available
   },
   {
-    title: 'Software Prototyping',
-    icon: prototyping,
+    title: 'Database Administrator',
+    icon: database, // Replace with a DB-related icon if available
   },
 ];
+
 
 const technologies = [
   {
@@ -85,8 +93,8 @@ const technologies = [
     icon: reactjs,
   },
   {
-    name: 'Redux Toolkit',
-    icon: redux,
+    name: 'Python',
+    icon: python,
   },
   {
     name: 'Tailwind CSS',
@@ -97,12 +105,12 @@ const technologies = [
     icon: nodejs,
   },
   {
-    name: 'Rails',
-    icon: rubyrails,
+    name: 'FastAPI',
+    icon: api,
   },
   {
-    name: 'graphql',
-    icon: graphql,
+    name: 'SQLite',
+    icon: sqlite,
   },
   {
     name: 'postgresql',
@@ -117,40 +125,66 @@ const technologies = [
     icon: figma,
   },
   {
-    name: 'docker',
-    icon: docker,
+    name: 'MySQL',
+    icon: mysql,
   },
 ];
 
 const experiences = [
   {
-    title: 'Front-End Developer',
-    company_name: 'Cover Hunt',
-    icon: coverhunt,
-    iconBg: '#333333',
-    date: 'Aug 2021 - Feb 2022',
-  },
+  title: 'IT Support Intern/Assitant-HArdware Executive',
+  company_name: 'Bowen University',
+  icon: bowen,
+  iconBg: '#1e3c72',
+  date: 'March 2025 – June 2025',
+  points: [
+    'Provided tech support to faculty and students.',
+    'Maintained computer labs and updated software.',
+    'Built and deployed a student records management tool.',
+    'Documented IT processes for improved workflows.',
+  ],
+},
   {
-    title: 'Mentor (Volunteer)',
-    company_name: 'Microverse',
-    icon: microverse,
-    iconBg: '#333333',
-    date: 'Mar 2022 - May 2022',
-  },
-  {
-    title: 'Junior Software Engineer',
-    company_name: 'Kelhel',
-    icon: kelhel,
-    iconBg: '#333333',
-    date: 'May 2022 - Oct 2022',
-  },
-  {
-    title: 'Full Stack Developer',
-    company_name: 'Diversity Cyber Council',
-    icon: dcc,
-    iconBg: '#333333',
-    date: 'Sep 2022 - Present',
-  },
+  title: 'Student Developer',
+  company_name: 'Self-Initiated Projects',
+  icon: github,
+  iconBg: '#292929',
+  date: '2023 – Present',
+  points: [
+    'Built a personalized nutrition app using React Native and FastAPI.',
+    'Developed an energy management dashboard with real-time updates.',
+    'Worked on fraud detection using machine learning and Python.',
+    'Built several CRUD applications with Django, SQLite, and Bootstrap.',
+  ],
+},
+{
+  title: 'Full Stack Developer (Freelance)',
+  company_name: 'Personal Projects',
+  icon: backend,
+  iconBg: '#222222',
+  date: '2023 – Present',
+  points: [
+    'Built full-stack web applications using Django/FastAPI for the backend and React for the frontend.',
+    'Developed secure user authentication systems and real-time features.',
+    'Integrated relational databases (SQLite/PostgreSQL) for dynamic data handling.',
+    'Styled responsive UI components using Tailwind CSS and Bootstrap.',
+  ],
+},
+
+ {
+  title: 'AI/ML Developer (Student Research)',
+  company_name: 'Final Year Project',
+  icon: microchip, 
+  iconBg: '#2a5298',
+  date: '2025',
+  points: [
+    'Developed an AI-powered energy management system for commercial buildings.',
+    'Trained machine learning models to predict energy usage based on historical data.',
+    'Integrated real-time monitoring dashboard using React and Bootstrap.',
+    'Collaborated on hardware-software integration with sensors for live data capture.',
+  ],
+},
+
 ];
 
 const projects = [

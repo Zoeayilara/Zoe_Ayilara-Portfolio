@@ -30,20 +30,20 @@ const About = () => {
   return (
     <div className="-mt-[6rem]">
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={styles.sectionSubText}>Get to know me</p>
+        <h2 className={styles.sectionHeadText}>Who I Am</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
-        sapiente ipsum dolorum dicta eaque cumque inventore molestias, beatae ea
-        quaerat alias accusamus voluptas autem! Alias odit voluptates in totam
-        vitae dignissimos minus eaque culpa unde tempore dolore aperiam
-        obcaecati voluptatum aliquam corrupti, suscipit accusamus! Odit unde
-        veniam dolorum ipsum doloribus.
+        I'm <span className="text-pink-400 font-semibold">Ayilara Zoe</span>, a
+        Computer Science student at Bowen University. I'm passionate about solving real-world
+        problems using technology — from AI-powered systems to intelligent web applications.
+        I specialize in Python, Django, FastAPI, machine learning, and database development. I’m eager to
+        collaborate, learn, and build solutions that have real impact.
       </motion.p>
+
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
