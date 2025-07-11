@@ -46,7 +46,7 @@ const Hero = () => {
                 Zoe Ayilara
               </span>
             </h1>
-            <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
+             <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
               A Computer Scientist passionate about building intelligent systems,
               <br className="sm:block hidden" />
               solving real-world problems, and delivering beautiful web experiences.
@@ -83,22 +83,14 @@ const Hero = () => {
         </div>
 
         {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
-        <div className="absolute bottom-0 right-6 flex justify-end items-end w-full h-full z-10 overflow-hidden">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative"
-          >
-            {/* Optional glowing gradient background */}
-            <div className="absolute -inset-2 rounded-xl bg-gradient-to-tr from-[#ff7e5f] to-[#1e3c72] blur-2xl opacity-20"></div>
-
-            <img
-              src={zoe}
-              alt="zoe"
-              className="w-[220px] h-auto object-contain shadow-xl"
-            />
-          </motion.div>
+        <div>
+          <img
+            className="absolute bottom-0 ml-[50vw] 
+            lg:ml-[75vw] md:ml-[60vw] xmd:ml-[60vw] 2xl:ml-[83vw]
+            sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"
+            src={zoe}
+            alt="Zoe Ayilara"
+          />
         </div>
       </section>
     </>
