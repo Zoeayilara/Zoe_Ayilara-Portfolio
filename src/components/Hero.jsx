@@ -90,11 +90,13 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="relative"
           >
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-[#ff7e5f] to-[#1e3c72] blur-lg opacity-30"></div>
+            {/* Optional glowing gradient background — keep or remove */}
+            <div className="absolute -inset-2 rounded-xl bg-gradient-to-tr from-[#ff7e5f] to-[#1e3c72] blur-2xl opacity-20"></div>
+
             <img
               src={zoe}
               alt="zoe"
-              className="w-72 h-72 object-cover rounded-full border-4 border-primary shadow-lg transition-transform duration-300 hover:scale-105 object-[center_60%]"
+              className="w-[300px] h-auto object-contain shadow-xl translate-y-[-30px]"
             />
           </motion.div>
         </div>
