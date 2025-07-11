@@ -83,20 +83,20 @@ const Hero = () => {
         </div>
 
         {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
-        <div className="absolute bottom-0 right-10 flex justify-end items-end w-full h-full z-10">
+        <div className="absolute bottom-0 right-6 flex justify-end items-end w-full h-full z-10 overflow-hidden">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
             className="relative"
           >
-            {/* Optional glowing gradient background — keep or remove */}
+            {/* Optional glowing gradient background */}
             <div className="absolute -inset-2 rounded-xl bg-gradient-to-tr from-[#ff7e5f] to-[#1e3c72] blur-2xl opacity-20"></div>
 
             <img
               src={zoe}
               alt="zoe"
-              className="w-[300px] h-auto object-contain shadow-xl translate-y-[-30px]"
+              className="w-[220px] h-auto object-contain shadow-xl"
             />
           </motion.div>
         </div>
