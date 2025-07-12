@@ -1,100 +1,111 @@
-# Portfolio Template
+# 👩🏽‍💻 Zoe Ayilara – Personal Portfolio
 
-https://github.com/shaqdeff/Portfolio-Template/assets/92020713/eed76a82-e59d-440b-a04c-a2dc00a508b7
+Welcome to my developer portfolio! I’m **Zoe Ayilara**, a highly motivated Computer Science student at Bowen University with hands-on experience in full-stack web development, artificial intelligence, and database design. This site showcases my skills, projects, and work experience.
 
-![portfolio-phone](https://github.com/shaqdeff/Portfolio-Template/assets/92020713/e41ed31c-50e5-40d3-a74f-9c0eb053fe7f)
-![portfolio-phone-3](https://github.com/shaqdeff/Portfolio-Template/assets/92020713/e8c23aa7-ac27-48fc-bf66-50ab00e3a64f)
+### 🌐 Live Site  
+🔗 [https://zoeayilara.github.io/Zoe_Ayilara-Portfolio](https://zoeayilara.github.io/Zoe_Ayilara-Portfolio)
 
-I created this portfolio to use as my own but ended up doing something else entirely. However, instead of keeping it buried, I decided to put it up here on GitHub as an open-source resource to help individuals to learn, adapt, and create their own portfolios. Feel free to customize and modify the theme and components to suit your personal style and branding preferences.
+---
 
-## License and Attribution
+## ✨ Features
 
-The code in this repository is released under the [MIT](https://github.com/shaqdeff/Portfolio-Template/blob/90213d4887074d1d29434f706afad3d12fa33f5f/MIT.md) License, which grants you the freedom to use, modify, and distribute the template as your own. However, if you choose to use the site's design largely unmodified, kindly credit me as the original designer of the site.
+- ✅ Smooth animated React UI with [Framer Motion](https://www.framer.com/motion/)
+- 🧠 Projects showcasing AI, ML, and web development skills
+- 🎨 Fully responsive, styled with custom Tailwind CSS
+- 🧾 Downloadable Resume
+- 📬 Functional Contact Form via EmailJS
 
-All projects and experiences included in this portfolio are the result of my own efforts and creativity. Please refrain from presenting them as your own.
+---
 
-## Built With
+## 🛠️ Tech Stack
 
-- React.js
-- Three.js
-- Framer Motion
-- TailwindCSS
+- **Frontend:** React, Tailwind CSS, Framer Motion, React Router
+- **Backend (Projects):** Django, FastAPI, SQLite, PostgreSQL
+- **Tools:** Vite, GitHub Pages, EmailJS
 
-## Live Demo
+---
 
-- Click [here](https://shaq-portfolio.netlify.app/) to view the live demo.
+## 📁 Folder Structure (Simplified)
 
-## Getting Started
+Zoe_Ayilara-Portfolio/
+├── public/ # Static assets (logo, favicon)
+├── src/
+│ ├── components/ # Reusable components (Hero, About, Projects, etc.)
+│ ├── constants/ # Skills, projects, experience data
+│ ├── assets/ # Images, icons, and logos
+│ ├── App.jsx # Main application component
+│ └── main.jsx # App entry point
+├── index.html # Entry HTML for Vite
+├── vite.config.js # Build config
+└── README.md # You’re here!
 
-To get started with this portfolio template, follow these simple steps:
+yaml
+Copy
+Edit
 
-### Prerequisites
+---
 
-Make sure you have node `16.0.0` or higher and npm `9.0.0` or higher installed.
+## 🧠 Projects Highlight
 
-### Setup
+### 🎨 KomiKult
+> An interactive comic explorer showcasing Marvel characters with dynamic styling and external API integration.
 
-- With git, clone the code to your machine, or download a ZIP of all the files directly.
-- [Download the ZIP file from this location](https://github.com/shaqdeff/Portfolio-Template/archive/refs/heads/main.zip) or run the following [git](https://git-scm.com/) command to clone the files to your machine:
+- **Tech:** React, MongoDB, Tailwind CSS  
+- 🔗 [Live Demo](https://shaqdeff.github.io/KomiKult) | [Source Code](https://github.com/shaqdeff/KomiKult)
 
-```
-git clone https://github.com/shaqdeff/Portfolio-Template.git
-```
+---
 
-- Once the files are on your machine, open the **Portfolio-Template** folder in [Visual Studio Code](https://code.visualstudio.com/download).
+### 🏆 Leaderboard
+> Real-time leaderboard app to track and display player scores using REST APIs.
 
-```
-cd Portfolio-Template && code .
-```
+- **Tech:** React, REST API, SCSS  
+- 🔗 [Live Demo](https://shaqdeff.github.io/Leaderboard) | [Source Code](https://github.com/shaqdeff/Leaderboard)
 
-## Install
+---
 
-- After opening the files in Visual Studio Code, open the **VS Code** integrated terminal and run the following commands:
+### ➗ Math Magicians
+> A responsive single-page calculator app built with component-based architecture and routing.
 
-```
-npm install
-```
+- **Tech:** Next.js, Supabase, CSS  
+- 🔗 [Live Demo](https://inspiring-medovik-37d3b3.netlify.app) | [Source Code](https://github.com/shaqdeff/Math-Magicians)
 
-This will install all the packages and dependencies used in the project.
+---
 
-## Usage
+### 🎬 Movie Metro
+> A searchable movie app that fetches ratings and metadata using external APIs and Supabase.
 
-- Run the following command to start a local server:
+- **Tech:** Next.js, Supabase, CSS  
+- 🔗 [Live Demo](https://movie-metro.netlify.app) | [Source Code](https://github.com/shaqdeff/Movie-Metro)
 
-```
-npm run dev
-```
+---
 
-This will open up the project on a browser on `http://localhost:5173/`
+### 🎤 Nyeusi Fest Site
+> A sleek landing page design for a fictional music festival with responsive UI and animations.
 
-## Build
+- **Tech:** Next.js, Supabase, CSS  
+- 🔗 [Live Demo](https://shaqdeff.github.io/Nyeusi-Fest-Site) | [Source Code](https://github.com/shaqdeff/Nyeusi-Fest-Site)
 
-- To create a production build:
 
-```
-npm run build
-```
+---
 
-- To preview the site as it will appear once deployed:
+## 🧑🏽‍💻 About Me
 
-```
-npm run preview
-```
+I’m passionate about building tech that solves real problems. Whether it's optimizing energy consumption with AI or designing user-friendly tools, I thrive at the intersection of creativity and engineering.
 
-## Authors
+- 🎓 BSc. Computer Science @ Bowen University
+- ⚙️ Backend-focused, but enjoy designing too
+- 💡 Exploring AI, ML, and system integrations
 
-👤 **Shaquille Ndunda**
+---
 
-- GitHub: [@shaqdeff](https://github.com/shaqdeff)
-- Twitter: [@shaquillendunda](https://twitter.com/shaquillendunda)
-- LinkedIn: [Shaquille Ndunda](https://www.linkedin.com/in/shaquille-ndunda-b13a95107/)
+## 📩 Contact
 
-## Feedback and Contributions
+- ✉️ zoeayilara@gmail.com  
+- 📱 +234 915 227 8109  
+- 🔗 [GitHub](https://github.com/Zoeayilara)
 
-If you have any feedback, suggestions, or would like to contribute to this project, your involvement is highly valued. Feel free to open an [issue](../../issues/) or submit a pull request with your ideas and enhancements. Remember, this template is a starting point, and the true magic lies in making it your own. Enjoy the journey of creating a stunning portfolio that represents your unique talents and accomplishments!
+---
 
-Happy coding and showcasing!
+## 📄 License
 
-## Show your support
-
-Give a ⭐️ if you like this project!
+This portfolio is open-source and available under the [MIT License](LICENSE).
