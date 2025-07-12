@@ -47,11 +47,11 @@ Edit
 
 ## 🧠 Projects Highlight
 
-### 🎨 KomiKult
+### 🎨 ComicVerse
 > An interactive comic explorer showcasing Marvel characters with dynamic styling and external API integration.
 
 - **Tech:** React, MongoDB, Tailwind CSS  
-- 🔗 [Live Demo](https://shaqdeff.github.io/KomiKult) | [Source Code](https://github.com/shaqdeff/KomiKult)
+- 🔗 [Live Demo](https://zoeayilara.github.io/ComicVerse/) | [Source Code](https://github.com/Zoeayilara/ComicVerse.git)
 
 ---
 
@@ -59,23 +59,23 @@ Edit
 > Real-time leaderboard app to track and display player scores using REST APIs.
 
 - **Tech:** React, REST API, SCSS  
-- 🔗 [Live Demo](https://shaqdeff.github.io/Leaderboard) | [Source Code](https://github.com/shaqdeff/Leaderboard)
+- 🔗 [Live Demo](https://zoeayilara.github.io/Leaderboard/') | [Source Code](https://github.com/Zoeayilara/Leaderboard.git)
 
 ---
 
-### ➗ Math Magicians
+### ➗ Math Mind
 > A responsive single-page calculator app built with component-based architecture and routing.
 
 - **Tech:** Next.js, Supabase, CSS  
-- 🔗 [Live Demo](https://inspiring-medovik-37d3b3.netlify.app) | [Source Code](https://github.com/shaqdeff/Math-Magicians)
+- 🔗 [Live Demo](https://inspiring-medovik-37d3b3.netlify.app) | [Source Code](https://github.com/Zoeayilara/MathMind.git)
 
 ---
 
-### 🎬 Movie Metro
+### 🎬 Movico
 > A searchable movie app that fetches ratings and metadata using external APIs and Supabase.
 
 - **Tech:** Next.js, Supabase, CSS  
-- 🔗 [Live Demo](https://movie-metro.netlify.app) | [Source Code](https://github.com/shaqdeff/Movie-Metro)
+- 🔗 [Live Demo](https://movie-metro.netlify.app) | [Source Code](https://github.com/Zoeayilara/Movico.git)
 
 ---
 
@@ -83,7 +83,7 @@ Edit
 > A sleek landing page design for a fictional music festival with responsive UI and animations.
 
 - **Tech:** Next.js, Supabase, CSS  
-- 🔗 [Live Demo](https://shaqdeff.github.io/Nyeusi-Fest-Site) | [Source Code](https://github.com/shaqdeff/Nyeusi-Fest-Site)
+- 🔗 [Live Demo](https://zoeayilara.github.io/Nyeusi-Festival/) | [Source Code](https://github.com/Zoeayilara/Nyeusi-Festival.git)
 
 
 ---
