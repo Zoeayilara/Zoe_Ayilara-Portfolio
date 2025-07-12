@@ -232,7 +232,7 @@ const projects = [
     ],
     image: leaderboard,
     repo: 'https://github.com/Zoeayilara/Leaderboard.git',
-    demo: 'https://zoeayilara.github.io/Leaderboard/)',
+    demo: 'https://zoeayilara.github.io/Leaderboard/',
   },
   {
     id: 'project-3',
