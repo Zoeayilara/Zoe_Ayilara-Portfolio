@@ -191,7 +191,7 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
-    name: 'KomiKult',
+    name: 'ComicVerse',
     description: 'A comic characters list app that displays Marvel characters.',
     tags: [
       {
@@ -208,8 +208,8 @@ const projects = [
       },
     ],
     image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    repo: 'https://github.com/Zoeayilara/ComicVerse.git',
+    demo: 'https://zoeayilara.github.io/ComicVerse/',
   },
   {
     id: 'project-2',
@@ -231,12 +231,12 @@ const projects = [
       },
     ],
     image: leaderboard,
-    repo: 'https://github.com/shaqdeff/Leaderboard',
-    demo: 'https://shaqdeff.github.io/Leaderboard/',
+    repo: 'https://github.com/Zoeayilara/Leaderboard.git',
+    demo: 'https://zoeayilara.github.io/Leaderboard/)',
   },
   {
     id: 'project-3',
-    name: 'Math Magicians',
+    name: 'Math Mind',
     description: 'This is a single-page calculator app built with React',
     tags: [
       {
@@ -253,12 +253,12 @@ const projects = [
       },
     ],
     image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
+    repo: 'https://github.com/Zoeayilara/MathMind.git',
     demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
   },
   {
     id: 'project-4',
-    name: 'Movie Metro',
+    name: 'Movico',
     description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
     tags: [
       {
@@ -275,7 +275,7 @@ const projects = [
       },
     ],
     image: movie,
-    repo: 'https://github.com/shaqdeff/Movie-Metro',
+    repo: 'https://github.com/Zoeayilara/Movico.git',
     demo: 'https://movie-metro.netlify.app/',
   },
   {
@@ -298,8 +298,8 @@ const projects = [
       },
     ],
     image: nyeusi,
-    repo: 'https://github.com/shaqdeff/Nyeusi-Fest-Site',
-    demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
+    repo: 'https://github.com/Zoeayilara/Nyeusi-Festival.git',
+    demo: 'https://zoeayilara.github.io/Nyeusi-Festival/',
   },
 ];
 
