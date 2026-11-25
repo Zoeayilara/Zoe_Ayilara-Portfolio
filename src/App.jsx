@@ -1,48 +1,59 @@
-import { BrowserRouter } from 'react-router-dom';
-import {
-  About,
-  Contact,
-  Experience,
-  Hero,
-  Navbar,
-  Tech,
-  Projects,
-} from './components';
+import { useCallback, useEffect, useState } from 'react';
+import Nav from './components/Nav';
+import Hero from './components/Hero';
+import Work from './components/Work';
+import Experience from './components/Experience';
+import Stack from './components/Stack';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Terminal from './components/Terminal';
 
-const App = () => {
+const isTyping = (el) =>
+  el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+
+export default function App() {
+  const [termOpen, setTermOpen] = useState(false);
+  const [prefill, setPrefill] = useState(null);
+
+  const openTerminal = useCallback(() => setTermOpen(true), []);
+  const closeTerminal = useCallback(() => setTermOpen(false), []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === '`' && !isTyping(document.activeElement) && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        setTermOpen((o) => !o);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const hire = useCallback(() => {
+    setPrefill({
+      text: 'Hi Zoe, I’d like to talk about hiring you for a backend project. Here’s what we’re building: ',
+      at: Date.now(),
+    });
+    setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 150);
+  }, []);
+
   return (
-    <BrowserRouter>
-      <div className="relative z-0">
-        <div>
-          <Navbar />
-          <Hero />
-        </div>
-
-        <div className="bg-about bg-cover bg-center bg-no-repeat">
-          <About />
-        </div>
-
-        <div className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
-          <Tech />
-        </div>
-
-        <Projects />
-
-        <div
-          className="bg-experience bg-cover bg-center bg-no-repeat 
-            rounded-tl-[150px] rounded-br-[150px]">
-          <div
-            className="bg-experienceLight bg-cover bg-center 
-            bg-no-repeat rounded-tl-[150px] rounded-br-[130px]">
-            <Experience />
-          </div>
-        </div>
-        <div className="relative z-0">
-          <Contact />
-        </div>
-      </div>
-    </BrowserRouter>
+    <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <Nav onTerminal={openTerminal} />
+      <main id="main">
+        <Hero />
+        <Work />
+        <Experience />
+        <Stack />
+        <About />
+        <Contact prefill={prefill} />
+      </main>
+      <Footer onTerminal={openTerminal} />
+      <Terminal open={termOpen} onClose={closeTerminal} onHire={hire} />
+    </>
   );
-};
-
-export default App;
+}

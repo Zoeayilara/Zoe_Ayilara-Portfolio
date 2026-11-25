@@ -1,0 +1,119 @@
+.stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+.stack-groups {
+  display: grid;
+  gap: 1.75rem;
+}
+.stack-group h3 {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--graphite);
+  margin-bottom: 0.7rem;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  font-weight: 550;
+  font-size: var(--t-sm);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.25s var(--ease-out);
+}
+.chip:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.chip[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  min-width: 1.3rem;
+  height: 1.3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--cobalt-soft);
+  color: var(--cobalt);
+  font-weight: 700;
+}
+.chip[aria-pressed='true'] .count {
+  background: var(--cobalt);
+  color: #fff;
+}
+.usage {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  background: var(--console);
+  color: var(--console-text);
+  border-radius: var(--radius-panel);
+  padding: 1.1rem 1.2rem 1.3rem;
+  font-size: 0.82rem;
+  min-height: 15rem;
+}
+.usage-q {
+  color: #fff;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-wrap: anywhere;
+}
+.prompt {
+  color: var(--ok);
+  margin-right: 0.3rem;
+}
+.usage-a {
+  padding-top: 0.8rem;
+  display: grid;
+  gap: 0.35rem;
+  line-height: 1.5;
+}
+.hit {
+  animation: line-in 0.35s var(--ease-out) both;
+}
+.hit:nth-child(2) { animation-delay: 50ms; }
+.hit:nth-child(3) { animation-delay: 100ms; }
+.hit:nth-child(4) { animation-delay: 150ms; }
+.hit:nth-child(5) { animation-delay: 200ms; }
+.file {
+  color: #f6c768;
+}
+.sum,
+.none {
+  color: var(--console-dim);
+  margin-top: 0.4rem;
+}
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+@media (max-width: 860px) {
+  .stack {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .usage {
+    position: sticky;
+    top: auto;
+    bottom: 0.75rem;
+    min-height: 0;
+    max-height: 11rem;
+    overflow: auto;
+    box-shadow: 0 20px 40px -20px rgba(14, 26, 43, 0.6);
+  }
+}

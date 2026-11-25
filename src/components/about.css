@@ -1,0 +1,105 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--ink);
+  isolation: isolate;
+}
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: -1;
+}
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  left: 15%;
+  top: 18%;
+  border-radius: 50%;
+  background: var(--cobalt);
+  filter: blur(2px);
+  z-index: -1;
+  transition: transform 0.8s var(--ease-out);
+}
+.portrait:hover .portrait-frame::after {
+  transform: scale(1.06) translateY(-4px);
+}
+.portrait-frame img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 94%;
+  width: auto;
+  max-width: none;
+}
+.portrait-cap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  color: var(--graphite);
+}
+.about-copy h2 {
+  font-size: var(--t-2xl);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 750;
+  margin-bottom: 1.25rem;
+}
+.about-copy p {
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+.about-copy p + p {
+  margin-top: 1rem;
+}
+.about-copy .lede {
+  font-size: var(--t-xl);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.facts dt {
+  font-size: var(--t-xs);
+  color: var(--graphite);
+}
+.facts dd {
+  font-weight: 600;
+  margin-top: 0.2rem;
+  line-height: 1.35;
+}
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portrait {
+    max-width: 360px;
+  }
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

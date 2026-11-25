@@ -1,0 +1,130 @@
+.t-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(14, 26, 43, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: t-fade 0.2s ease-out both;
+}
+.t-window {
+  width: min(760px, 100%);
+  height: min(520px, 78vh);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-panel);
+  background: var(--console);
+  color: var(--console-text);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 50px 100px -30px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  animation: t-pop 0.35s var(--ease-out) both;
+}
+.t-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--console-2);
+  font-size: 0.75rem;
+  color: var(--console-dim);
+}
+.t-close {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--console-text);
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.t-close:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.t-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.1rem;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  cursor: text;
+}
+.t-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.t-line b {
+  color: #fff;
+}
+.t-line.dim,
+.t-dim {
+  color: var(--console-dim);
+}
+.t-line.err {
+  color: var(--err);
+}
+.t-line.ok {
+  color: var(--ok);
+}
+.t-line.warn {
+  color: var(--amber);
+}
+.t-prompt {
+  color: var(--ok);
+  white-space: nowrap;
+}
+.t-cmd {
+  color: #9fb0ff;
+}
+.t-help div {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 1rem;
+}
+.t-ls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  color: #9fb0ff;
+}
+.t-json {
+  margin: 0.25rem 0 0.5rem;
+  white-space: pre-wrap;
+}
+.t-input-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.t-input-row input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: #fff;
+  caret-color: var(--amber);
+  font: inherit;
+}
+@keyframes t-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes t-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+@media (max-width: 560px) {
+  .t-help div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-bottom: 0.3rem;
+  }
+  .t-input-row input {
+    font-size: 16px; /* stops iOS zoom */
+  }
+}

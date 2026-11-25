@@ -1,58 +1,55 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { styles } from '../styles';
-import { services } from '../constants';
-import { fadeIn, textVariant } from '../utils/motion';
-import { SectionWrapper } from '../hoc';
+import Reveal from './Reveal';
+import zoe from '../assets/zoe.webp';
+import { profile } from '../data/profile';
+import './about.css';
 
-const ServiceCard = ({ index, title, icon }) => {
+export default function About() {
   return (
-    <motion.div
-      variants={fadeIn('right', 'spring', 0.5 * index, 0.75)}
-      className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card">
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
-        <img src={icon} alt={title} className="w-16 h-16 object-contain" />
-        <h3 className="text-taupe text-[18px] font-bold text-center">
-          {title}
-        </h3>
+    <section className="section about" id="about" aria-labelledby="about-title">
+      <div className="wrap about-grid">
+        <Reveal className="portrait">
+          <div className="portrait-frame">
+            <img src={zoe} alt="Portrait of Zoe Ayilara" width="375" height="666" loading="lazy" decoding="async" />
+          </div>
+          <p className="portrait-cap mono">
+            <span>7.63° N, 4.18° E</span>
+            <span>Iwo, Osun</span>
+          </p>
+        </Reveal>
+
+        <Reveal className="about-copy" delay={80}>
+          <h2 id="about-title">About</h2>
+          <p className="lede">
+            I’m Zoe, a final-year Computer Science student at {profile.school}, and the person
+            on a team who ends up owning the API.
+          </p>
+          <p>
+            I like the work most people skip: designing the schema before anyone writes a screen,
+            making the dashboard load in one request instead of four, catching the routing bug that
+            made an endpoint silently unreachable. When a free-tier database started running out of
+            compute hours, I traced it to our own reminder job and fixed the interval.
+          </p>
+          <p>
+            Outside of client work I run the hardware unit for NACOS at Bowen, and I’ve spent time
+            teaching classmates OOP and graph theory, which is mostly how I learned to explain a
+            system in plain words.
+          </p>
+          <dl className="facts">
+            <div>
+              <dt>Based in</dt>
+              <dd>Nigeria, working remotely</dd>
+            </div>
+            <div>
+              <dt>Best fit</dt>
+              <dd>Backend, APIs, databases, integrations</dd>
+            </div>
+            <div>
+              <dt>Also do</dt>
+              <dd>React frontends, ML features</dd>
+            </div>
+          </dl>
+        </Reveal>
       </div>
-    </motion.div>
+    </section>
   );
-};
-
-const About = () => {
-  return (
-    <div className="-mt-[6rem]">
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Get to know me</p>
-        <h2 className={styles.sectionHeadText}>Who I Am</h2>
-      </motion.div>
-
-      <motion.p
-        variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        I'm <span className="text-pink-400 font-semibold">Ayilara Zoe</span>, a
-        backend developer and final-year Computer Science student at Bowen University.
-        I build APIs and full web apps with Python (Django, FastAPI) and Node.js (Express,
-        Prisma), backed by PostgreSQL, MySQL and Firebase. I've shipped StudyCircle, a study
-        group app, and built websites for paying clients. I also work on AI features and
-        machine learning projects.
-      </motion.p>
-
-
-      <div className="mt-20 flex flex-wrap gap-10">
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default SectionWrapper(About, 'about');
+}
