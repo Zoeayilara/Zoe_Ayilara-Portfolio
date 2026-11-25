@@ -38,10 +38,11 @@ const About = () => {
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
         I'm <span className="text-pink-400 font-semibold">Ayilara Zoe</span>, a
-        Computer Science student at Bowen University. I'm passionate about solving real-world
-        problems using technology — from AI-powered systems to intelligent web applications.
-        I specialize in Python, Django, FastAPI, machine learning, and database development. I’m eager to
-        collaborate, learn, and build solutions that have real impact.
+        backend developer and final-year Computer Science student at Bowen University.
+        I build APIs and full web apps with Python (Django, FastAPI) and Node.js (Express,
+        Prisma), backed by PostgreSQL, MySQL and Firebase. I've shipped StudyCircle, a study
+        group app, and built websites for paying clients. I also work on AI features and
+        machine learning projects.
       </motion.p>
 
 

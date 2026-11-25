@@ -50,6 +50,7 @@ const ProjectCard = ({
           <div
             className="absolute bottom-0 p-8 justify-start w-full 
             flex-col bg-[rgba(122,122,122,0.5)] rounded-b-[24px] z-20">
+            {repo && (
             <div className="absolute inset-0 flex justify-end m-3">
               <div
                 onClick={() => window.open(repo, '_blank')}
@@ -63,6 +64,7 @@ const ProjectCard = ({
                 />
               </div>
             </div>
+            )}
 
             <h2
               className="font-bold sm:text-[32px] text-[24px] 
@@ -111,7 +113,7 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const [active, setActive] = useState('project-2');
+  const [active, setActive] = useState('project-1');
 
   return (
     <div className="-mt-[6rem]">

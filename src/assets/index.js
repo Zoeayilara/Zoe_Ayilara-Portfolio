@@ -60,6 +60,8 @@ import math from './projects/math-magicians.png';
 import movie from './projects/movie-metro.png';
 import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
+import studycircle from './projects/studycircle.png';
+import fegbogun from './projects/fegbogun.png';
 
 export {
   bwmap,
@@ -103,6 +105,8 @@ export {
   movie,
   nyeusi,
   space,
+  studycircle,
+  fegbogun,
   coverhunt,
   dcc,
   kelhel,

@@ -35,6 +35,8 @@ import {
   sqlite,
   bowen,
   github,
+  studycircle,
+  fegbogun,
 } from '../assets';
 
 export const navLinks = [
@@ -66,7 +68,7 @@ const services = [
     icon: microchip, // Replace with a better icon if available
   },
   {
-    title: 'Database Administrator',
+    title: 'Database Design',
     icon: database, // Replace with a DB-related icon if available
   },
 ];
@@ -118,6 +120,10 @@ const technologies = [
     icon: postgresql,
   },
   {
+    name: 'Docker',
+    icon: docker,
+  },
+  {
     name: 'git',
     icon: git,
   },
@@ -133,146 +139,93 @@ const technologies = [
 
 const experiences = [
   {
-  title: 'IT Support Intern/Assitant-HArdware Executive',
-  company_name: 'Bowen University',
-  icon: bowen,
-  iconBg: '#1e3c72',
-  date: 'March 2025 – June 2025',
-  points: [
-    'Provided tech support to faculty and students.',
-    'Maintained computer labs and updated software.',
-    'Built and deployed a student records management tool.',
-    'Documented IT processes for improved workflows.',
-  ],
-},
+    title: 'Backend Developer (Intern)',
+    company_name: 'Circo Orange Internship Programme – Team Vanguard-circle',
+    icon: backend,
+    iconBg: '#1e3c72',
+    date: '2026',
+    points: [
+      'Built the StudyCircle backend with Express, Prisma and PostgreSQL (Neon), using Firebase for auth.',
+      'Built group invites with email delivery, task and session reminders, and Google Calendar sync over OAuth2.',
+      'Wrote the API contract and ER diagram and connected the React frontend to the live API.',
+      'Deployed the frontend and backend on Render.',
+    ],
+  },
   {
-  title: 'Student Developer',
-  company_name: 'Self-Initiated Projects',
-  icon: github,
-  iconBg: '#292929',
-  date: '2023 – Present',
-  points: [
-    'Built a personalized nutrition app using React Native and FastAPI.',
-    'Developed an energy management dashboard with real-time updates.',
-    'Worked on fraud detection using machine learning and Python.',
-    'Built several CRUD applications with Django, SQLite, and Bootstrap.',
-  ],
-},
-{
-  title: 'Full Stack Developer (Freelance)',
-  company_name: 'Personal Projects',
-  icon: backend,
-  iconBg: '#222222',
-  date: '2023 – Present',
-  points: [
-    'Built full-stack web applications using Django/FastAPI for the backend and React for the frontend.',
-    'Developed secure user authentication systems and real-time features.',
-    'Integrated relational databases (SQLite/PostgreSQL) for dynamic data handling.',
-    'Styled responsive UI components using Tailwind CSS and Bootstrap.',
-  ],
-},
-
- {
-  title: 'AI/ML Developer (Student Research)',
-  company_name: 'Final Year Project',
-  icon: microchip, 
-  iconBg: '#2a5298',
-  date: '2025',
-  points: [
-    'Developed an AI-powered energy management system for commercial buildings.',
-    'Trained machine learning models to predict energy usage based on historical data.',
-    'Integrated real-time monitoring dashboard using React and Bootstrap.',
-    'Collaborated on hardware-software integration with sensors for live data capture.',
-  ],
-},
-
+    title: 'Freelance Web Developer',
+    company_name: 'Client Projects',
+    icon: github,
+    iconBg: '#292929',
+    date: '2025 – Present',
+    points: [
+      'Built and launched a website for an author to showcase their books.',
+      'Handle the full process for clients: requirements, build, deployment and domain setup.',
+    ],
+  },
+  {
+    title: 'IT Support Intern / Assistant Hardware Executive',
+    company_name: 'Bowen University',
+    icon: bowen,
+    iconBg: '#2a5298',
+    date: 'March 2025 – June 2025',
+    points: [
+      'Provided tech support to faculty and students.',
+      'Maintained computer labs and kept software up to date.',
+      'Built and deployed a student records management tool.',
+      'Documented IT processes for the team.',
+    ],
+  },
 ];
 
 const projects = [
   {
     id: 'project-1',
-    name: 'ComicVerse',
-    description: 'A comic characters list app that displays Marvel characters.',
+    name: 'StudyCircle',
+    description:
+      'A web app for university students to form study circles, share tasks and resources, track streaks and get reminders. I built the backend: Express, Prisma, PostgreSQL, Firebase Auth.',
     tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'tailwind',
-        color: 'pink-text-gradient',
-      },
+      { name: 'nodejs', color: 'blue-text-gradient' },
+      { name: 'postgresql', color: 'green-text-gradient' },
+      { name: 'prisma', color: 'pink-text-gradient' },
     ],
-    image: komikult,
-    repo: 'https://github.com/Zoeayilara/ComicVerse.git',
-    demo: 'https://zoeayilara.github.io/ComicVerse/',
+    image: studycircle,
+    repo: '',
+    demo: 'https://studycircle-vyo1.onrender.com/',
   },
   {
     id: 'project-2',
+    name: 'Author Site',
+    description:
+      'A website I built for a client, an author, to present their books and literary work to readers.',
+    tags: [
+      { name: 'client', color: 'blue-text-gradient' },
+      { name: 'website', color: 'green-text-gradient' },
+    ],
+    image: fegbogun,
+    repo: '',
+    demo: 'https://fegbogun.com/',
+  },
+  {
+    id: 'project-3',
     name: 'Leaderboard',
     description:
-      'A leaderboard list app that displays scores submitted by different players.',
+      'A leaderboard app that pulls player scores from a REST API and lets players submit new ones.',
     tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'restapi',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'scss',
-        color: 'pink-text-gradient',
-      },
+      { name: 'javascript', color: 'blue-text-gradient' },
+      { name: 'restapi', color: 'green-text-gradient' },
+      { name: 'scss', color: 'pink-text-gradient' },
     ],
     image: leaderboard,
     repo: 'https://github.com/Zoeayilara/Leaderboard.git',
     demo: 'https://zoeayilara.github.io/Leaderboard/',
   },
   {
-    id: 'project-3',
-    name: 'Math Mind',
-    description: 'This is a single-page calculator app built with React',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: math,
-    repo: 'https://github.com/Zoeayilara/MathMind.git',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
-  },
-  {
     id: 'project-4',
     name: 'Movico',
-    description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
+    description: `Search any movie or show to see its ratings and details.`,
     tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'api', color: 'green-text-gradient' },
     ],
     image: movie,
     repo: 'https://github.com/Zoeayilara/Movico.git',
@@ -280,26 +233,15 @@ const projects = [
   },
   {
     id: 'project-5',
-    name: 'Nyeusi Fest Site',
-    description:
-      'This is a demo concert website for a music festival called Nyeusi.',
+    name: 'ComicVerse',
+    description: 'A browsable list of Marvel characters.',
     tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'tailwind', color: 'pink-text-gradient' },
     ],
-    image: nyeusi,
-    repo: 'https://github.com/Zoeayilara/Nyeusi-Festival.git',
-    demo: 'https://zoeayilara.github.io/Nyeusi-Festival/',
+    image: komikult,
+    repo: 'https://github.com/Zoeayilara/ComicVerse.git',
+    demo: 'https://zoeayilara.github.io/ComicVerse/',
   },
 ];
 
