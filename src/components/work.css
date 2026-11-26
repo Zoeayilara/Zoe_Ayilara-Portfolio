@@ -498,3 +498,52 @@
     gap: 0.4rem;
   }
 }
+
+/* Boot sequence: nodes power on one after another when the panel enters */
+.arch-node,
+.arch-chip {
+  opacity: 0.25;
+  transform: translateY(6px) scale(0.97);
+}
+.arch.is-booted .arch-node,
+.arch.is-booted .arch-chip {
+  opacity: 1;
+  transform: none;
+  transition: color 0.35s, border-color 0.35s, background-color 0.35s, box-shadow 0.35s,
+    opacity 0.5s calc(var(--i) * 90ms) var(--ease-out), transform 0.6s calc(var(--i) * 90ms) var(--ease-out);
+}
+.arch-track::before {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.9s 0.2s var(--ease-out);
+}
+.arch.is-booted .arch-track::before {
+  transform: none;
+}
+.packet {
+  animation-delay: 0.25s;
+}
+.ep-detail pre .j-key,
+.ep-detail pre .j-str,
+.ep-detail pre .j-num {
+  transition: color 0.3s;
+}
+.ep {
+  transition: background-color 0.2s, border-color 0.2s, transform 0.3s var(--ease-out);
+}
+.ep:hover {
+  transform: translateX(3px);
+}
+.infera > *,
+.client-card > *,
+.earlier > * {
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .arch-node,
+  .arch-chip {
+    opacity: 1;
+    transform: none;
+  }
+}

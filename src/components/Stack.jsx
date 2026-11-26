@@ -39,13 +39,14 @@ export default function Stack() {
         </Reveal>
 
         <div className="stack">
-          <Reveal className="stack-groups">
+          <Reveal className="stack-groups stagger">
             {stack.map((g) => (
               <div key={g.group} className="stack-group" role="group" aria-label={g.group}>
                 <h3>{g.group}</h3>
                 <div className="chips">
-                  {g.items.map((it) => (
+                  {g.items.map((it, idx) => (
                     <button
+                      style={{ '--i': idx }}
                       key={it.id}
                       type="button"
                       className="chip"

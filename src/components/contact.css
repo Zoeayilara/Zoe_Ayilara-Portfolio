@@ -129,8 +129,12 @@
 .payload-state.error {
   color: var(--err);
 }
-.payload pre {
+.payload-body {
+  position: relative;
   flex: 1;
+  overflow: hidden;
+}
+.payload pre {
   margin: 0;
   padding: 1rem 1.1rem;
   font-size: 0.8rem;
@@ -158,5 +162,93 @@
   }
   .payload {
     display: none;
+  }
+}
+
+.trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.form {
+  position: relative;
+}
+
+.contact {
+  will-change: clip-path;
+}
+.payload {
+  position: relative;
+}
+.payload::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  opacity: 0;
+}
+.payload.is-sending::after {
+  opacity: 1;
+  animation: sweep 1s linear infinite;
+}
+.payload-packet {
+  position: absolute;
+  left: 1.1rem;
+  top: 1.2rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 18px var(--amber);
+  opacity: 0;
+}
+.payload.is-sent .payload-packet {
+  animation: fly 0.9s var(--ease-out) both;
+}
+.payload.is-sent pre {
+  animation: settle 0.6s 0.35s var(--ease-out) both;
+}
+.payload.is-sent .payload-state {
+  animation: flash 1.2s var(--ease-out);
+}
+@keyframes sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+@keyframes fly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(420px, -60px) scale(0.4);
+  }
+}
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes flash {
+  0%,
+  100% {
+    text-shadow: none;
+  }
+  30% {
+    text-shadow: 0 0 12px var(--ok);
   }
 }

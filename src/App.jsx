@@ -8,6 +8,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Terminal from './components/Terminal';
+import { initScroll, scrollToId } from './motion/scroll';
+import { initSpotlight, initMagnetic } from './motion/pointer';
 
 const isTyping = (el) =>
   el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
@@ -18,6 +20,12 @@ export default function App() {
 
   const openTerminal = useCallback(() => setTermOpen(true), []);
   const closeTerminal = useCallback(() => setTermOpen(false), []);
+
+  useEffect(() => {
+    initScroll();
+    initSpotlight();
+    initMagnetic();
+  }, []);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -35,7 +43,7 @@ export default function App() {
       text: 'Hi Zoe, I’d like to talk about hiring you for a backend project. Here’s what we’re building: ',
       at: Date.now(),
     });
-    setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 150);
+    setTimeout(() => scrollToId('contact'), 150);
   }, []);
 
   return (

@@ -3,9 +3,9 @@ import Json, { jsonLength } from './Json';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const routes = [
-  { id: 'zoe', path: '/api/zoe.json', label: 'zoe' },
-  { id: 'now', path: '/api/now.json', label: 'now' },
-  { id: 'projects', path: '/api/projects.json', label: 'projects' },
+  { id: 'zoe', path: '/v1/zoe.json', label: 'zoe' },
+  { id: 'now', path: '/v1/now.json', label: 'now' },
+  { id: 'projects', path: '/v1/projects.json', label: 'projects' },
 ];
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');

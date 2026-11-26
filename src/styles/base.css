@@ -266,3 +266,88 @@ a {
     transform: none;
   }
 }
+
+/* ---------- Motion system ---------- */
+.scroll-locked,
+.scroll-locked body {
+  overflow: hidden;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Section headings rise out of a mask when they enter */
+.section-head.reveal,
+.contact-head.reveal {
+  opacity: 1;
+  transform: none;
+}
+.section-head h2,
+.contact-head h2 {
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(35%);
+  transition: clip-path 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.section-head p,
+.contact-head p {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s 0.15s var(--ease-out), transform 0.8s 0.15s var(--ease-out);
+}
+.is-in h2 {
+  clip-path: inset(-10% 0 -15% 0);
+  transform: none;
+}
+.is-in p {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cursor spotlight on cards */
+.spot {
+  position: relative;
+}
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(43, 68, 224, 0.09), transparent 60%);
+}
+.spot.spot-light::before {
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.16), transparent 60%);
+}
+.spot:hover::before {
+  opacity: 1;
+}
+
+/* Magnetic buttons spring back when released */
+.magnetic {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s, color 0.2s,
+    box-shadow 0.2s, border-color 0.2s;
+}
+.magnetic.is-pulled {
+  transition: transform 0.15s linear, background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-head h2,
+  .contact-head h2,
+  .section-head p,
+  .contact-head p {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}

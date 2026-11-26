@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
+import { onScroll, lockScroll, scrollToId } from '../motion/scroll';
 import './nav.css';
 
 const links = [
@@ -16,15 +17,28 @@ export default function Nav({ onTerminal }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const barRef = useRef(null);
+
+  useEffect(
+    () =>
+      onScroll((y, vh) => {
+        setScrolled(y > 8);
+        const max = document.documentElement.scrollHeight - vh;
+        if (barRef.current) barRef.current.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+      }),
+    [],
+  );
+
+  const go = (e, id) => {
+    e.preventDefault();
+    setOpen(false);
+    lockScroll(false);
+    scrollToId(id);
+    history.replaceState(null, '', id === 'top' ? window.location.pathname : `#${id}`);
+  };
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    lockScroll(open);
     if (!open) return undefined;
     const onKey = (e) => e.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', onKey);
@@ -34,7 +48,7 @@ export default function Nav({ onTerminal }) {
   return (
     <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="wrap nav-inner">
-        <a href="#top" className="brand" aria-label="Zoe Ayilara, back to top">
+        <a href="#top" className="brand" aria-label="Zoe Ayilara, back to top" onClick={(e) => go(e, 'top')}>
           <span className="brand-mark" aria-hidden="true">
             za
           </span>
@@ -47,7 +61,7 @@ export default function Nav({ onTerminal }) {
               key={l.id}
               href={`#${l.id}`}
               aria-current={active === l.id ? 'true' : undefined}
-              onClick={() => setOpen(false)}
+              onClick={(e) => go(e, l.id)}
             >
               {l.label}
             </a>
@@ -67,7 +81,7 @@ export default function Nav({ onTerminal }) {
         <div className="nav-actions">
           <button
             type="button"
-            className="term-btn mono"
+            className="term-btn mono magnetic"
             onClick={onTerminal}
             aria-label="Open terminal (shortcut: backtick)"
             title="Open terminal  ( ` )"
@@ -87,6 +101,7 @@ export default function Nav({ onTerminal }) {
           </button>
         </div>
       </div>
+      <span className="nav-progress" ref={barRef} aria-hidden="true" />
     </header>
   );
 }

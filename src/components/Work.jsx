@@ -1,30 +1,63 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useInView } from '../hooks/useInView';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import Json from './Json';
 import Reveal from './Reveal';
 import { featured, infera, clientWork, earlier, allTechLabels } from '../data/profile';
 import './work.css';
 
-function Architecture({ endpoint }) {
+// Counts a metric up from zero the first time it scrolls into view.
+function Count({ value }) {
+  const reduced = useReducedMotion();
+  const [ref, inView] = useInView();
+  const target = parseFloat(value);
+  const decimals = (value.split('.')[1] || '').replace(/\D/g, '').length;
+  const suffix = value.replace(/[\d.]/g, '');
+  const [n, setN] = useState(reduced ? target : 0);
+  useEffect(() => {
+    if (!inView || reduced) return undefined;
+    let raf;
+    const t0 = performance.now();
+    const dur = 1400;
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      setN(target * (1 - Math.pow(1 - p, 4)));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, reduced, target]);
+  return (
+    <span ref={ref}>
+      <span className="sr-only">{value}</span>
+      <span aria-hidden="true">
+        {n.toFixed(decimals)}
+        {suffix}
+      </span>
+    </span>
+  );
+}
+
+function Architecture({ endpoint, booted }) {
   const active = new Set(['client', 'api', ...endpoint.touches]);
   // Background jobs don't start at the client.
   if (endpoint.method === 'JOB') active.delete('client');
   return (
-    <div className="arch" aria-hidden="true">
+    <div className={`arch ${booted ? 'is-booted' : ''}`} aria-hidden="true">
       <div className="arch-track">
-        {featured.nodes.map((n) => (
-          <div key={n.id} className={`arch-node ${active.has(n.id) ? 'on' : ''}`}>
+        {featured.nodes.map((n, idx) => (
+          <div key={n.id} className={`arch-node ${active.has(n.id) ? 'on' : ''}`} style={{ '--i': idx }}>
             <strong>{n.label}</strong>
             <span>{n.note}</span>
           </div>
         ))}
-        <span
-          key={endpoint.path}
-          className={`packet ${endpoint.method === 'JOB' ? 'from-api' : ''}`}
-        />
+        {booted && (
+          <span key={endpoint.path} className={`packet ${endpoint.method === 'JOB' ? 'from-api' : ''}`} />
+        )}
       </div>
       <div className="arch-side">
-        {featured.sidecars.map((s) => (
-          <div key={s.id} className={`arch-chip ${active.has(s.id) ? 'on' : ''}`}>
+        {featured.sidecars.map((s, idx) => (
+          <div key={s.id} className={`arch-chip ${active.has(s.id) ? 'on' : ''}`} style={{ '--i': idx + 4 }}>
             <strong>{s.label}</strong>
             <span>{s.note}</span>
           </div>
@@ -36,6 +69,7 @@ function Architecture({ endpoint }) {
 
 function Featured() {
   const [i, setI] = useState(0);
+  const [panelRef, booted] = useInView({ rootMargin: '0px 0px -25% 0px' });
   const ep = featured.endpoints[i];
 
   const onKey = (e) => {
@@ -53,7 +87,7 @@ function Featured() {
   };
 
   return (
-    <article className="feature" aria-labelledby="feature-title">
+    <article className="feature spot" aria-labelledby="feature-title">
       <header className="feature-head">
         <div>
           <p className="feature-kicker">
@@ -62,7 +96,7 @@ function Featured() {
           <h3 id="feature-title">{featured.name}</h3>
           <p className="feature-summary">{featured.summary}</p>
         </div>
-        <a className="btn btn-primary" href={featured.live} target="_blank" rel="noopener noreferrer">
+        <a className="btn btn-primary magnetic" href={featured.live} target="_blank" rel="noopener noreferrer">
           Open the live app
         </a>
       </header>
@@ -89,8 +123,8 @@ function Featured() {
           ))}
         </div>
 
-        <div className="ep-panel on-dark" id="ep-panel" role="tabpanel" aria-labelledby={`ep-${i}`}>
-          <Architecture endpoint={ep} />
+        <div className="ep-panel on-dark" id="ep-panel" role="tabpanel" aria-labelledby={`ep-${i}`} ref={panelRef}>
+          <Architecture endpoint={ep} booted={booted} />
           <div className="ep-detail" key={ep.path}>
             <h4>{ep.title}</h4>
             <p>{ep.detail}</p>
@@ -132,7 +166,7 @@ export default function Work() {
         </Reveal>
 
         <div className="more">
-          <Reveal as="article" className="infera" aria-labelledby="infera-title">
+          <Reveal as="article" className="infera spot spot-light" aria-labelledby="infera-title">
             <p className="client-kicker">Machine learning, {infera.year}</p>
             <h3 id="infera-title">{infera.name}</h3>
             <p className="infera-summary">{infera.summary}</p>
@@ -140,7 +174,9 @@ export default function Work() {
               {infera.metrics.map((m) => (
                 <div key={m.label}>
                   <dt>{m.label}</dt>
-                  <dd>{m.value}</dd>
+                  <dd>
+                    <Count value={m.value} />
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -153,7 +189,7 @@ export default function Work() {
 
           <Reveal className="client" delay={80}>
             {clientWork.map((c) => (
-              <a key={c.id} className="client-card" href={c.url} target="_blank" rel="noopener noreferrer">
+              <a key={c.id} className="client-card spot" href={c.url} target="_blank" rel="noopener noreferrer">
                 <div className="client-chrome mono" aria-hidden="true">
                   <span className="dots">
                     <i />
@@ -172,7 +208,7 @@ export default function Work() {
             ))}
           </Reveal>
 
-          <Reveal className="earlier">
+          <Reveal className="earlier spot">
             <h3>Earlier builds</h3>
             <p className="earlier-note">Frontend projects from when I was learning to work with APIs.</p>
             <ul>

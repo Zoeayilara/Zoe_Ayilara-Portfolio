@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://zoeayilara.github.io/Zoe_Ayilara-Portfolio/sitemap.xml

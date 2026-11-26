@@ -10,7 +10,7 @@ if (!existsSync(join(dist, 'index.html'))) {
   process.exit(1);
 }
 
-for (const name of ['assets', 'api', 'index.html', 'og.png', 'favicon.svg', 'robots.txt', 'sitemap.xml']) {
+for (const name of ['assets', 'api', 'v1', 'index.html', 'og.png', 'favicon.svg', 'robots.txt', 'sitemap.xml']) {
   rmSync(join(root, name), { recursive: true, force: true });
 }
 for (const name of readdirSync(dist)) {

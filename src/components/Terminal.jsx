@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Json from './Json';
 import { profile, featured, infera, clientWork, earlier, stack } from '../data/profile';
+import { lockScroll, scrollToId } from '../motion/scroll';
 import './terminal.css';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -23,7 +24,7 @@ const help = [
   ['cat <about|stack|now>', 'print a file'],
   ['open <name>', 'open a project, github or resume'],
   ['cd <section>', 'jump to a section of the page'],
-  ['curl /api/zoe.json', 'make a real request'],
+  ['curl /v1/zoe.json', 'make a real request'],
   ['contact', 'write me a message'],
   ['history, date, clear, exit', ''],
 ];
@@ -46,7 +47,7 @@ export default function Terminal({ open, onClose, onHire }) {
   useEffect(() => {
     if (open) {
       lastFocus.current = document.activeElement;
-      document.body.style.overflow = 'hidden';
+      lockScroll(true);
       if (!lines.length) {
         print(
           <Out tone="dim">zoe-os 1.0. Type <b>help</b> to see what you can do, or press Esc to close.</Out>,
@@ -54,7 +55,7 @@ export default function Terminal({ open, onClose, onHire }) {
       }
       setTimeout(() => inputRef.current?.focus(), 30);
     } else {
-      document.body.style.overflow = '';
+      lockScroll(false);
       lastFocus.current?.focus?.();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,7 +67,7 @@ export default function Terminal({ open, onClose, onHire }) {
 
   const goto = (id) => {
     onClose();
-    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 120);
+    setTimeout(() => scrollToId(id), 120);
   };
 
   const run = async (raw) => {
@@ -135,7 +136,7 @@ export default function Terminal({ open, onClose, onHire }) {
         break;
       }
       case 'curl': {
-        const path = (args[0] || '/api/zoe.json').replace(/^https?:\/\/[^/]+/, '').replace(base, '');
+        const path = (args[0] || '/v1/zoe.json').replace(/^https?:\/\/[^/]+/, '').replace(base, '');
         try {
           const t0 = performance.now();
           const res = await fetch(`${base}${path.startsWith('/') ? path : `/${path}`}`, { cache: 'no-store' });
@@ -148,7 +149,7 @@ export default function Terminal({ open, onClose, onHire }) {
             </pre>,
           );
         } catch (e) {
-          print(<Out tone="err">curl: {path} returned {e.message === 'Failed to fetch' ? 'no response' : e.message}. Try /api/zoe.json, /api/now.json or /api/projects.json</Out>);
+          print(<Out tone="err">curl: {path} returned {e.message === 'Failed to fetch' ? 'no response' : e.message}. Try /v1/zoe.json, /v1/now.json or /v1/projects.json</Out>);
         }
         break;
       }

@@ -1,9 +1,36 @@
 .hero {
+  position: relative;
+  isolation: isolate;
   min-height: 100svh;
   display: flex;
   align-items: center;
   padding-top: calc(var(--nav-h) + 2rem);
   padding-bottom: 4rem;
+}
+.hero-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-hint {
+  margin-top: 1.5rem;
+  font-size: var(--t-xs);
+  color: var(--graphite);
+  opacity: 0;
+  animation: rise 0.8s 1.6s var(--ease-out) forwards;
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .hero-hint {
+    display: none;
+  }
+}
+.hero-copy,
+.hero-console {
+  will-change: transform;
+}
+.hero-console {
+  transform-origin: 50% 100%;
 }
 .hero-grid {
   display: grid;
@@ -51,12 +78,23 @@
   overflow: hidden;
   padding-bottom: 0.06em;
 }
-.hero-name .line > span {
+.decode-glyph {
+  position: relative;
   display: inline-block;
-  animation: lift 1s var(--ease-out) both;
 }
-.hero-name .line:nth-child(2) > span {
-  animation-delay: 0.08s;
+.decode-ghost {
+  visibility: hidden;
+}
+.decode-g {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.62em;
+  letter-spacing: 0;
+  color: var(--cobalt);
 }
 .name-caret {
   display: inline-block;
@@ -275,7 +313,32 @@
   .hero {
     min-height: auto;
   }
-  .hero-grid {
+  .hero-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-hint {
+  margin-top: 1.5rem;
+  font-size: var(--t-xs);
+  color: var(--graphite);
+  opacity: 0;
+  animation: rise 0.8s 1.6s var(--ease-out) forwards;
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .hero-hint {
+    display: none;
+  }
+}
+.hero-copy,
+.hero-console {
+  will-change: transform;
+}
+.hero-console {
+  transform-origin: 50% 100%;
+}
+.hero-grid {
     grid-template-columns: minmax(0, 1fr);
   }
   .console-body {

@@ -1,7 +1,29 @@
-.log {
+.log-list {
   list-style: none;
   padding: 0;
+}
+.log {
+  position: relative;
   max-width: 920px;
+  --rail-x: 13px;
+}
+.log-track,
+.log-fill {
+  position: absolute;
+  left: var(--rail-x);
+  width: 2px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.log-track {
+  background: var(--line);
+}
+.log-fill {
+  background: var(--cobalt);
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+  z-index: 1;
+  box-shadow: 0 0 12px rgba(43, 68, 224, 0.45);
 }
 .commit {
   display: grid;
@@ -13,7 +35,7 @@
   transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
   transition-delay: calc(var(--i) * 110ms);
 }
-.log.is-in .commit {
+.log-list.is-in .commit {
   opacity: 1;
   transform: none;
 }
@@ -22,20 +44,10 @@
   display: flex;
   justify-content: center;
 }
-.commit-rail::before {
-  content: '';
-  position: absolute;
-  top: 14px;
-  bottom: -2.5rem;
-  width: 2px;
-  background: var(--line);
-}
-.commit:last-child .commit-rail::before {
-  display: none;
-}
+
 .commit-dot {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   margin-top: 4px;
   width: 14px;
   height: 14px;
@@ -44,10 +56,18 @@
   background: var(--paper);
   transition: background-color 0.25s, border-color 0.25s, transform 0.3s var(--ease-out);
 }
-.commit:first-child .commit-dot {
+.commit.lit .commit-dot {
   background: var(--cobalt);
   border-color: var(--cobalt);
   box-shadow: 0 0 0 4px var(--cobalt-soft);
+  transform: scale(1.1);
+}
+.commit .commit-body h3,
+.commit .hash {
+  transition: color 0.4s;
+}
+.commit:not(.lit) .commit-body h3 {
+  color: var(--ink-2);
 }
 .commit:hover .commit-dot {
   transform: scale(1.2);
@@ -108,6 +128,9 @@
 }
 
 @media (max-width: 640px) {
+  .log {
+    --rail-x: 9px;
+  }
   .commit {
     grid-template-columns: 20px minmax(0, 1fr);
     gap: 0 0.9rem;
