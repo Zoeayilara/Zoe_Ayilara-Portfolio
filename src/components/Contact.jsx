@@ -163,7 +163,7 @@ export default function Contact({ prefill }) {
                     {status.message || 'The message didn’t send. Check your connection and try again.'}{' '}
                     {status.code !== 400 && (
                       <>
-                        Or email{' '}
+                        You can email me at{' '}
                         <a className="link" href={`mailto:${profile.email}`}>
                           {profile.email}
                         </a>
