@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://zoeayilara.github.io/Zoe_Ayilara-Portfolio/",
+  "homepage": "https://zoeportfol.netlify.app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "release": "vite build && node scripts/release.mjs",
     "test": "node --test tests/*.test.js"
   },
   "dependencies": {

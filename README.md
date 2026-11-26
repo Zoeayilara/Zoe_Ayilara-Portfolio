@@ -1,6 +1,6 @@
 # Zoe Ayilara, portfolio
 
-Live: https://zoeayilara.github.io/Zoe_Ayilara-Portfolio/
+Live: https://zoeportfol.netlify.app/
 
 React 18 + Vite, plain CSS with design tokens, no UI framework. Around 60 KB of JS gzipped.
 
@@ -34,6 +34,6 @@ npx netlify dev   # site + /api/contact together
 npm test
 ```
 
-Netlify builds and deploys on every push to `main` (settings in `netlify.toml`). The built copy at the repo root is for the old GitHub Pages URL; refresh it with `npm run release`.
+Netlify builds and deploys on every push to `main` (settings in `netlify.toml`). The `index.html` at the repo root only redirects the old GitHub Pages URL to Netlify.
 
 Source lives in `src/`. All copy and project data is in `src/data/profile.js`. Motion lives in `src/motion/` and `src/components/HeroField.jsx`, and all of it switches off when the visitor has reduced motion turned on.
