@@ -82,7 +82,9 @@ export default function Contact({ prefill }) {
             ? 'Fix the fields marked above and send again.'
             : body.missing
               ? `${body.error} (missing: ${body.missing.join(', ')})`
-              : body.error,
+              : body.upstream
+                ? `${body.error} (email service said ${body.upstream.status}: ${body.upstream.reason})`
+                : body.error,
       });
     } catch {
       setStatus({ phase: 'error', code: 0 });
