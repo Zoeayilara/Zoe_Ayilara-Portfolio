@@ -77,7 +77,12 @@ export default function Contact({ prefill }) {
       setStatus({
         phase: 'error',
         code: res.status,
-        message: res.status === 400 ? 'Fix the fields marked above and send again.' : body.error,
+        message:
+          res.status === 400
+            ? 'Fix the fields marked above and send again.'
+            : body.missing
+              ? `${body.error} (missing: ${body.missing.join(', ')})`
+              : body.error,
       });
     } catch {
       setStatus({ phase: 'error', code: 0 });
